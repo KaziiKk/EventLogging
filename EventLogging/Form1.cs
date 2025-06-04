@@ -42,12 +42,14 @@ namespace WindowsFormsApp4
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (listBox2.SelectedIndex < listBox2.Items.Count)
+            if (listBox2.SelectedIndex != -1 &&
+                listBox2.SelectedIndex < listBox2.Items.Count - 1)
             {
                 int index = listBox2.SelectedIndex;
-                String text = listBox2.SelectedItem.ToString();
-                listBox2.Items.RemoveAt(listBox2.SelectedIndex);
+                string text = listBox2.SelectedItem.ToString();
+                listBox2.Items.RemoveAt(index);
                 listBox2.Items.Insert(index + 1, text);
+                listBox2.SelectedIndex = index + 1;
             }
         }
 
